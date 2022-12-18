@@ -1,3 +1,4 @@
+# Part 1 function
 def find_possible_pos(board: list[list[str]], y: int, x: int, max_y: int):
     obs = {'#', 'o'}
     while y != max_y - 1:
@@ -14,6 +15,7 @@ def find_possible_pos(board: list[list[str]], y: int, x: int, max_y: int):
     return None
 
 
+# Part 2 function (I don't know how to name)
 def simulate(obs: set[tuple[int, int]], y: int, x: int, max_y: int):
     while y != max_y - 1:
         if (y + 1, x) not in obs:
@@ -34,7 +36,7 @@ with open("day14.input.txt", "r") as f:
 
 rock_structures = len(lines)
 
-# Get rid of trailing end line character
+# Get rid of end line character
 # Type: iterator of strings
 lines = map(lambda l: l.strip(), lines)
 
@@ -85,12 +87,11 @@ while True:
         y, x = pos
         scans[y][x] = 'o'
         count += 1
-# print("\n".join(map(lambda x: "".join(x), scans)))
+
 print(count)
 
 # PART 2
-# use dictionary to store the obstacls
-# for expansion purpose
+# use set to store the obstacles
 
 obs = set()
 for struct in structs:
